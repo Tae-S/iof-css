@@ -1,0 +1,697 @@
+/*TODO: -> hover state of largest grid item(unknown)
+FIXME: -> hover state transition of other grid items' underlines(fix the gap)*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+
+:root{
+    --page_full_width: 3381px;
+}
+
+body{
+    min-height: 9454px;
+    min-width: var(--page_full_width);
+}
+
+/**DEF: header **/
+
+header{
+    width: var(--page_full_width);
+    height: 70px;
+    /* border: 1px solid black; */
+    justify-content: center;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 7px 1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+header > p{
+    font-family: 'Satisfy', cursive;
+    font-size: 32px;
+    display: inline;
+    /* border: 1px solid black; */
+    width:200px;
+    height: 30px;
+    font-weight: 400;
+    line-height: 30px;
+    position: absolute;
+    left: 1612px;
+    top: 20px;
+    font-style: normal;
+}
+
+header > img{
+    width: 30px;
+    height: 30px;
+    /* border: 1px solid black; */
+    position: absolute;
+    left: 1572px;
+    top: 20px;
+    margin-right: 10px;
+}
+/** DEF: Varieties **/
+.var-container{
+    position: absolute;
+    width: var(--page_full_width);
+    top: 120px;
+    height:100%;
+}
+
+.var-title{
+    font-family: 'Poppins', cursive;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+    color: #2B2B2B;
+    position: absolute;
+    width: 230px;
+    height: 40px;
+    left: 1576px;
+    letter-spacing: 9px;
+}
+
+.var-underline{
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    left: 1653px;
+    top: 60px;
+
+    background: #342679;
+    /* border: 1px solid #000000; */
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.var-grid-container{
+    position: absolute;
+    /* border:1px solid black; */
+    height: calc(1394.66px + 37.04px);
+    width: var(--page_full_width);
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-column-gap: 40px;
+    grid-row-gap: 35px;
+    top: 113px;
+    left:50px;
+}
+
+.var-grid-item{
+    grid-column: span 1;
+    position: absolute;
+    padding:0;
+    margin: 0;
+    height:fit-content;
+    width:fit-content;
+    /* border:1px solid black; */
+    margin-top: 40px;
+    margin-right: 95px; /*ADDED: 90-or-95*/
+    cursor: pointer;
+}
+
+.var-gi-four, .var-gi-five{
+    margin-top: -100px;
+}
+
+.var-gi-three, .var-gi-five{
+    margin-left: -100px;
+}
+
+.var-gi-one{
+    padding-left: 80px;
+}
+
+.grid-col-span-2{
+    grid-column: span 2;
+}
+
+.var-gi-one{
+    position: absolute;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.var-gi-two{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    margin-left: -49px;
+}
+
+.var-gi-three{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+.var-gi-four{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    top: 798.81px;
+    margin-left: -49px;
+}
+.var-gi-five{
+    grid-row-start: 2;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    top: 798.81px;
+}
+
+.var-gi-one > img,
+.var-gi-two > img,
+.var-gi-three > img,
+.var-gi-four > img,
+.var-gi-five > img{
+    border-radius: 20px;
+}
+
+.gi-desc-container{
+    width: 773.92px;
+    height: 323.75px;
+    /* border:1px solid gold; */
+    position: absolute;
+
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+background: #FFFFFF;
+opacity: 0.8;
+transition: all 0.3s ease-in-out;
+}
+
+.gi-one{
+    width: 1561px;
+    height: 452px;
+    left: 80px;
+    top: 821px; /*1051 -> 821*/
+    background: #342679;
+}
+
+.gi-two,
+.gi-three,
+.gi-four,
+.gi-five{
+    /* left: 1691px; */
+    /* top: 525px; */
+    top: calc(525px - 230px);
+}
+
+.gi-two,
+.gi-three{
+    width: 101%;
+}
+
+.gi-one-title{
+    width: 1429.62px;
+    height: 51.94px;
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 40px;
+    color: #FFFFFF;
+    margin: 50.06px 66.34px 0 65.04px;
+}
+
+.gi-one-desc{
+    position: absolute;
+    width: 1429.62px;
+    height: 83.11px;
+    margin:151.93px 66.34px 0px 65.04px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 42px;
+    color: #FFFFFF;
+}
+
+.gi-one > img{
+    margin: 285.04px 66.28px 0 63.8px;
+}
+
+.gi-two-title,
+.gi-three-title,
+.gi-four-title,
+.gi-five-title{
+    width: 682.87px;
+    height: 48.65px;
+    margin: 50px 45.53px 0 45.53px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: #2B2B2B;
+}
+
+.gi-two-desc,
+.gi-three-desc,
+.gi-four-desc,
+.gi-five-desc{
+    width: 681px;
+    height: 26px;
+    margin: 20px 46.92px 0 46px;
+}
+
+.gi-two > img,
+.gi-three > img,
+.gi-four > img,
+.gi-five > img{
+    margin: 49.52px 45.53px 0 45.53px;
+}
+
+.exp-one{
+    /* border: 1px solid #FFFFFF; */
+    width: 180.82px;
+    height:64.93px;
+    border-radius: 25px;
+    margin: 29.21px 1315.14px 0 65.04px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.exp-one > p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+}
+
+.rated-one{
+    /* border:1px solid gold; */
+    width: 102.76px; /*102.76*/
+    height: 31.17px; /*31.17*/
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    left: 1393.19px;
+    top: 337px;
+}
+
+.rated-one > p{
+    width: 63.74px;
+    height: 31.17px;
+    margin-left: 7.8px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: right;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+}
+
+
+
+/*NEW: for all except largest grid item(suffixed '-one')*/
+.explore{
+    width: 138.1px;
+    height: 36.49px;
+    /* border: 1px solid gold; */
+    margin: 45.61px 590.31px 0 45.53px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.explore > p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2B2B2B;
+}
+
+.rated{
+    width: 103.19px;
+    height: 36.49px;
+    /* border: 1px solid gold; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    top: 241.65px;
+    left: 625.21px;
+    position: absolute;
+}
+
+
+.rated > p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: right;
+    color: #2B2B2B;
+}
+
+.var-hover-2:hover .gi-desc-container{
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.var-hover-2:hover .gi-desc-container > p,
+.var-hover-2:hover .rated > p,
+.var-hover-2:hover .explore > p{
+    color: #ffffff;
+}
+
+.var-hover-2:hover .explore > img,
+.var-hover-2:hover .rated > img{
+    /* background-color: #ffffff; */
+    mix-blend-mode:exclusion;
+    filter: invert();
+}
+.var-hover-2:hover .gi-desc-container > img{
+    background-color: #ffffff;
+}
+
+
+/** DEF: Cuisines **/
+.cuisines-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.cuisine{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+
+.cuisine-title{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 32px;
+    margin: 50px 0 30px 90.6px;
+}
+
+.cuisine-desc{
+    margin: 0 119.59px 63px 90.6px;
+}
+
+.ind-cuisine{
+    position: absolute;
+    left: 88px;
+    top: 1703px;
+    width: 1025.55px;
+    height: 265px;
+    
+}
+
+.am-cuisine{
+    position: absolute;
+    width: 1025.55px;
+    height: 450px;
+    left: 1169.72px;
+    top: 1703px;
+}
+
+.chn-cuisine{
+    position: absolute;
+    width: 1025.55px;
+    height: 265px;
+    left: 2251.45px;
+    top: 1703px;
+}
+
+/** DEF: TOP-CHEFS **/
+
+.chefs-bg-banner{
+    position: absolute;
+    margin-left: 130px;
+    top: 2315px;
+}
+
+/**ADDED: constant size **/
+.chef-container{
+    position: absolute;
+    width: 566px;
+    height: 451px;
+    background-color: transparent;
+    box-shadow: 0px 1px 20px 1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.french-fries-title{
+    position: absolute;
+    left: 1646px;
+    top: 2202px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+    text-align: center;
+    color: #2B2B2B;
+}
+
+.french-fries-underline{
+    position: absolute;
+    left: calc(1731px - 35px);
+    top: 2262px;
+    background: #342679;
+}
+
+.chef-container:hover{
+    background-color: #ffffff;
+    color: #2B2B2B;
+}
+
+.eileen-container{
+    left: calc(869px - 132px);
+    top: 2388px;
+}
+
+.robert-container{
+    left: 1488px;
+    top: 2388px;
+}
+
+.amanda-container{
+    left: calc(2406px - 132px);
+    top: 2388px;
+}
+
+.chef-image{
+    margin: 50px 216px 0 200px;
+    border-radius: 50%;
+}
+
+.chef-title{
+    margin: 30px 176px 0px 174px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: 3px;
+    /**ADDED: width changed to 278px advisabe to use vmin and em **/
+    width: 278px;
+}
+
+.chef-desc{
+    margin: 10px 50px 130px 50px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+}
+
+/**ADDED: constant padding/margin  CONCEPT:not necessary **/
+
+.food-guide-container{
+    position: absolute;
+    /* width: 3177px; */
+    height: fit-content;
+    height: 1781px;
+    /* border: 3px solid purple; */
+    top: 3068px;
+    left:130px;
+}
+
+.food-guide-banner{
+    position: relative;
+    width: 3177px;
+    height: 1781px;
+    top: 0;
+}
+
+.food-guide-title{
+    position: relative;
+    top: calc( -1 * 1781px);
+    color:#2B2B2B;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+    /* border: 1px solid red; */
+    text-align: center;
+    margin: 124px 1276px 0 1437px;
+}
+
+.food-guide-underline{
+    position: relative;
+    width: 132px;
+    height: 5px;
+    top: -1781px;
+    margin-left: 1605px;
+}
+
+.food-guide-circle{
+    position: absolute;
+    width: 197.74px;
+    height: 197.74px;
+    border-radius: 50%;
+    /* background: rgba(52, 38, 121, 0.7); */
+    background: rgba(77, 65, 141, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrot{
+    left: 407.01px;
+    top: 370.76px;
+}
+
+.grains{
+    left: 2585.43px;
+    top: 370.76px;   
+}
+
+.apple{
+    left: 407.01px;
+    top: 1117.22px;
+}
+
+.protein{
+    left: 2585.43px;
+    top: 1117.22px;
+}
+
+.fg-circle-title{
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #2B2B2B;
+    width: 722px;
+    height:53px;
+    /* border:1px solid green; */
+}
+
+.carrot-title{
+    top:618px;
+    /* left: 430px; 245 -> 430 */
+    left:145px;
+}
+
+.apple-title{
+    top:1364px;
+    left: 145px;
+}
+
+.grains-title{
+    top:618px;
+    left:2323px;
+}
+
+.protein-title{
+    top: 1364px;
+    left: 2323px;
+}
+
+.fg-circle-desc{
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    color: #2B2B2B;
+    width: 722px;
+    height:117px;
+}
+
+.carrot-desc{
+    top: 687px;
+    left: 145px;
+}
+
+.apple-desc{
+    top: 1434px;
+    left:145px;
+}
+
+.grains-desc{
+    top: 687px;
+    left: 2323px;
+}
+
+.protein-desc{
+    top: 1434px;
+    left: 2323px;
+}
+
+
+
+/**DEF: footer styles **/
+footer{
+    position:absolute;
+    top: 9273.46px;
+    left: 1500.82px;
+    display: flex;
+    flex-direction: row;
+}
+
+footer > div{
+    height: 104.93px;
+    width: 102.06px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 61.23px;
+    border-radius: 50%;
+    border: 1px solid #D9D9D9;
+    cursor: pointer;
+}
+
+footer > img{
+    width:54.44px;
+    height: 46.57px;
+}
